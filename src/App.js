@@ -51,53 +51,39 @@
 
 //TRABALHANDO COM STATES
 
-import React, { Component} from 'react';
+// 
 
-class App extends Component{
+import React,{Componet} from "react";
+
+class App extends Componet{
+
   constructor (props){
     super(props);
-    this.state ={
-      nome: 'Cicero',
-      contador: 0
+    this.state = {
+      hora: '00:00:00'
+    }; 
+  }
+    componentDidMount(){
+      setInterval(()=>{
+        this.setInterval({hora: new Date().toLocaleDateString()})
 
-    };
-    this.aumentar = this.aumentar.bind(this);
-    this.diminuir = this.diminuir.bind(this);
+      },1000);
+
+    
 
   }
-  aumentar(){
-    let state= this.state;
-    state.contador +=1;
-    state.nome = 'Jose' ;
-    this.setState(state);
-
+  componetDidUpdate(){
+    console.log('atualizou');
   }
-  diminuir(){
-    let state= this.state;
-    if(state.contador ===0){
-      alert('Chegou á zero');
-      return;
-
-    }
-    state.contador -= 1;
-    this.setState(state);
-  }
-
-
-  render (){
-    return (
+  
+  render(){
+    return(
       <div>
-        <h1>contador</h1>
-        {this.state.nome}
-        <h3> 
-        <button onClick={this.diminuir}>-</button> 
-          {this.state.contador} 
-        <button onClick={this.aumentar}>+</button>
-        </h3>
-
+        <h1>Meu Projeto</h1>
       </div>
-    );
 
+    );
   }
+  
 }
 export default App;
